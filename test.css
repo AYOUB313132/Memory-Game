@@ -1,0 +1,42 @@
+.memory-game-blocks {
+    display: flex;
+}
+
+.memory-game-blocks .game-block {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.memory-game-blocks .game-block:hover {
+    transform: rotateY(180deg);
+}
+
+.memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.memory-game-blocks .game-block .front {
+    background-color: black;
+    color: white;
+    font-size: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+
+.memory-game-blocks .game-block .back {
+    background-color: aqua;
+    transform: rotateY(180deg);
+}
+
+.memory-game-blocks .game-block .back img {
+    max-width: 100%;
+    max-height: 100%;
+}
