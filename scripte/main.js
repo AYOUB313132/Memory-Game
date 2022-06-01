@@ -23,7 +23,33 @@ let EmojiImg = [
         "image/logo-10.png",
     ]
     // shuffle Array 
+    // let gameBlock = document.getElementById('images').children;
 
+//         let otro = Array.from(gameBlock)
+
+//         // let one = [...Array(gameBlock.length).keys()]
+//         // let one = Array.from(Array(gameBlock.length).keys())
+//         let one = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+//         console.log(one)
+//         shuffle(one)
+//         console.log(one)
+
+//         function shuffle(arr) {
+//             let current = arr.length,
+//                 random,
+//                 temporal;
+//             while (current > 0) {
+//                 random = Math.floor(Math.random() * current);
+//                 current--;
+//                 temporal = arr[current]
+//                 arr[current] = arr[random]
+//                 arr[random] = temporal
+
+//             }
+
+//             return arr;
+
+//         }
 // getShuffledArr = arr => {
 //     const newArr = arr.slice()
 //     console.log(newArr)
@@ -55,19 +81,51 @@ let emoji = customShuffle(EmojiImg)
 
 $(document).ready(() => {
     $('.level-1').click(function() {
-        $('.text').hide();
+        $('.text').remove();
         $('.images').addClass('grid')
         for (let i = 0; i < emoji.length; i++) {
-            $('.images').append('<div class="game-block hide" data-tech=""><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+            $('.images').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
         }
 
         $('img').map(function(e) {
-            let imgSrc = emoji[e]
-            $(this).attr('src', imgSrc)
+            let imgSrc = emoji[e];
+            $(this).attr('src', imgSrc);
+            $(this).parents('.game-block').attr('data-tech', imgSrc.slice(6, -4));
+
+            console.log($('.front').length)
+
         })
         $('.images .game-block').fadeIn(2000)
 
+
+        let gameBlok = $('#images').children()
+        gameBlok.each(function() {
+            $(this).on('click', function() {
+                $(this).addClass('flipped')
+                let classChecked = $(this).hasClass('flipped')
+                $(this).filter(function() {
+                    if (classChecked.length >= 0) {
+                        console.log('yes')
+                    }
+                })
+            })
+
+        })
+
+
+
+
+
+
     });
+
+    /* testing shuffling */
+
+
+
+
+
+
 
 
 

@@ -233,11 +233,11 @@ main section .text {
 
 section .images .game-block {
     position: relative;
-    transition: transform 0.8s;
+    transition: all 0.8s;
     transform-style: preserve-3d;
 }
 
-section .images .game-block:hover {
+.flipped {
     transform: rotateY(180deg);
 }
 
