@@ -216,32 +216,31 @@ main section {
     width: calc(70% - 10px);
 }
 
-main section .images {
-    height: 100%;
+main section {
     padding: 10px;
     border: 5px solid #fff1eb;
 }
 
 main section .text {
-    font-size: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    margin-top: 5px;
+    font-size: 55px;
     color: #a1c4fd;
+    text-align: center;
 }
 
-section .images .game-block {
+section .game-block {
     position: relative;
     transition: all 0.8s;
     transform-style: preserve-3d;
+    width: 150px;
+    height: 150px;
 }
 
 .flipped {
     transform: rotateY(180deg);
 }
 
-section .images .game-block .face {
+section .game-block .face {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -249,12 +248,12 @@ section .images .game-block .face {
     backface-visibility: hidden;
 }
 
-section .images .game-block .back {
+section .game-block .back {
     background-color: #a1c4fd;
     transform: rotateY(180deg);
 }
 
-section .images .game-block .front {
+section .game-block .front {
     background-color: black;
     color: white;
     font-size: 90px;
@@ -262,9 +261,9 @@ section .images .game-block .front {
     text-align: center;
 }
 
-main section .images .game-block .back img {
+section .game-block .back img {
     width: 100%;
-    height: 150px;
+    height: 100%;
     background-color: #c3cfe2;
 }
 
@@ -273,9 +272,14 @@ main section .images .game-block .back img {
 }
 
 .grid {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
+    gap: 10px; */
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    column-gap: 15px;
+    justify-content: center;
 }
 
 

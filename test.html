@@ -11,20 +11,39 @@
 
 
 
-<div class="memory-game-blocks">
-
-    <!-- <div class="game-block" data-tech="angular">
-                        <div class="face front">?</div>
-                        <div class="face back">
-                            <img src="/png/kisspng-bootstrap-responsive-web-design-web-development-lo-5af676c0755361.6918533815261016964806.png" alt="">
-                        </div>
-                        
-                    </div> -->
-
-</div>
+<section class="game-blocks grid" id="game-blocks">
+    <div class="game-block">
+        <div class="face front">?</div>
+        <div class="face back">
+            <img id="back" src="png/angular.png" alt=""></div>
+    </div>
+    <div class="game-block">
+        <div class="face front">?</div>
+        <div class="face back">
+            <img id="back" src="png/bootstrap.png" alt=""></div>
+    </div>
+    <div class="game-block">
+        <div class="face front">?</div>
+        <div class="face back">
+            <img id="back" src="png/wordpress.png" alt=""></div>
+    </div>
+</section>
 </body>
 <script src="scripte/jquery-3.6.0.min.js"></script>
 <script>
+    $(document).ready(function() {
+        let blok = $('#game-blocks').children()
+        blok.each(function() {
+            $(this).filter(function() {
+                $(this).click(function() {
+                    if ($(this).hasClass('face')) {
+                        console.log('yes')
+                    }
+                })
+
+            })
+        })
+    })
 </script>
 
 </html>

@@ -1,5 +1,4 @@
-let myImg = document.getElementsByTagName('#back')
-let star = document.getElementById('star')
+/* =========== Array Images =========== */
 let EmojiImg = [
         "image/logo-1.png",
         "image/logo-2.png",
@@ -82,34 +81,40 @@ let emoji = customShuffle(EmojiImg)
 $(document).ready(() => {
     $('.level-1').click(function() {
         $('.text').remove();
-        $('.images').addClass('grid')
+        $('#game-blocks').addClass('grid')
         for (let i = 0; i < emoji.length; i++) {
-            $('.images').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+            $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
         }
 
         $('img').map(function(e) {
             let imgSrc = emoji[e];
             $(this).attr('src', imgSrc);
             $(this).parents('.game-block').attr('data-tech', imgSrc.slice(6, -4));
-
-            console.log($('.front').length)
-
         })
-        $('.images .game-block').fadeIn(2000)
+        $('#game-blocks .game-block').fadeIn(2000)
 
 
-        let gameBlok = $('#images').children()
-        gameBlok.each(function() {
+        let gameBlocks = $('#game-blocks').children()
+        gameBlocks.each(function() {
             $(this).on('click', function() {
                 $(this).addClass('flipped')
                 let classChecked = $(this).hasClass('flipped')
-                $(this).filter(function() {
-                    if (classChecked.length >= 0) {
-                        console.log('yes')
-                    }
-                })
+
             })
 
+        })
+        $('#game-blocks').children().each(function() {
+            let classChecked = $(this).hasClass('flipped')
+            $(this).filter(function() {
+                $(this).on('click', function() {
+                    if ($(this).hasClass('flipped')) {
+                        console.log($(this).length)
+                    } else {
+                        console.log('no')
+                    }
+                })
+
+            })
         })
 
 
@@ -119,7 +124,7 @@ $(document).ready(() => {
 
     });
 
-    /* testing shuffling */
+
 
 
 
