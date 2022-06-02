@@ -34,9 +34,11 @@
     $(document).ready(function() {
         let blok = $('#game-blocks').children()
         blok.each(function() {
-
             $(this).on('click', function() {
                 $(this).addClass('flipped')
+                if ($(this).hasClass('flipped')) {
+                    console.log($(this).hasClass('flipped').length)
+                }
             })
 
 
