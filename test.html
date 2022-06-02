@@ -6,45 +6,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="test.css">
+    <style>
+        section {
+            width: calc(70% - 10px);
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+        
+        main section {
+            padding: 10px;
+            border: 5px solid #fff1eb;
+        }
+        
+        main section .text {
+            margin-top: 5px;
+            font-size: 55px;
+            color: #a1c4fd;
+            text-align: center;
+        }
+        
+        section .game-block {
+            position: relative;
+            transition: all 0.8s;
+            transform-style: preserve-3d;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .flipped {
+            transform: rotateY(180deg);
+        }
+        
+        section .game-block .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
+        section .game-block .back {
+            background-color: #a1c4fd;
+            transform: rotateY(180deg);
+        }
+        
+        section .game-block .front {
+            background-color: black;
+            color: white;
+            font-size: 90px;
+            line-height: 120px;
+            text-align: center;
+        }
+        
+        section .game-block .back img {
+            width: 100%;
+            height: 100%;
+            background-color: #c3cfe2;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        button {
+            outline: none;
+            border: none;
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(to right, white 50%, #13547a 50%);
+            background-size: 200% 100%;
+            background-position: right top;
+            transition: 0.5s;
+            /* background-color: #13547a; */
+            color: white;
+        }
+    </style>
+
 </head>
 
+<body>
+    <article>
+        <button>star</button>
+    </article>
+    <section class="game-blocks" id="game-blocks">
 
-
-<section class="game-blocks grid" id="game-blocks">
-    <div class="game-block">
-        <div class="face front">?</div>
-        <div class="face back">
-            <img id="back" src="png/angular.png" alt=""></div>
-    </div>
-    <div class="game-block">
-        <div class="face front">?</div>
-        <div class="face back">
-            <img id="back" src="png/bootstrap.png" alt=""></div>
-    </div>
-    <div class="game-block">
-        <div class="face front">?</div>
-        <div class="face back">
-            <img id="back" src="png/wordpress.png" alt=""></div>
-    </div>
-</section>
+    </section>
 </body>
 <script src="scripte/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        let blok = $('#game-blocks').children()
-        blok.each(function() {
-            $(this).on('click', function() {
-                $(this).addClass('flipped')
-                $(this).filter(function() {
-                    $(this).hasClass('flipped')
-                    if ($(this).hasClass('flipped')) {
-                        console.log($(this).hasClass('flipped'))
-                    }
-                })
+    /* =========== Array Images =========== */
+    let EmojiImg = [
+        "image/logo-1.png",
+        "image/logo-2.png",
+        "image/logo-3.png",
+        "image/logo-4.png",
+        "image/logo-5.png",
+        "image/logo-6.png",
+        "image/logo-7.png",
+        "image/logo-8.png",
+        "image/logo-9.png",
+        "image/logo-10.png",
+        "image/logo-1.png",
+        "image/logo-2.png",
+        "image/logo-3.png",
+        "image/logo-4.png",
+        "image/logo-5.png",
+        "image/logo-6.png",
+        "image/logo-7.png",
+        "image/logo-8.png",
+        "image/logo-9.png",
+        "image/logo-10.png",
+    ];
 
+    function customShuffle(x) {
+        var y = x.slice(1, x.length - 1);
+        var j, t, i;
+        for (i = y.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            t = y[i];
+            y[i] = y[j];
+            y[j] = t;
+        }
+        return [x[0]].concat(y).concat(x[x.length - 1]);
+    }
+    let emoji = customShuffle(EmojiImg)
+
+    $(document).ready(() => {
+        $('button').click(function() {
+
+            $('.text').remove();
+            $('#game-blocks').addClass('grid')
+            for (let i = 0; i < emoji.length; i++) {
+                $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+            }
+
+            $('img').map(function(e) {
+                let imgSrc = emoji[e];
+                $(this).attr('src', imgSrc);
+                $(this).parents('.game-block').attr('data-tech', imgSrc.slice(6, -4));
+            })
+            $('#game-blocks .game-block').fadeIn(2000)
+
+
+            let gameBlocks = $('#game-blocks').children()
+            gameBlocks.each(function() {
+                $(this).on('click', function() {
+                    $(this).addClass('flipped')
+                    let classChecked = $(this).hasClass('flipped')
+                })
             })
 
+            $('#game-blocks').children().each(function() {
+                let classChecked = $(this).hasClass('flipped')
+                $(this).filter(function() {
+                    $(this).on('click', function() {
+                        if ($(this).hasClass('flipped')) {
+                            console.log($(this).length)
+                        } else {
+                            console.log('no')
+                        }
+                    })
+
+                })
+            })
 
         })
     })
