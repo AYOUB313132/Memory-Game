@@ -259,7 +259,6 @@ section .game-block .front {
     font-size: 90px;
     line-height: 120px;
     text-align: center;
-    cursor: not-allowed;
 }
 
 section .game-block .back img {

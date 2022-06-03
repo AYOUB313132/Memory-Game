@@ -35,7 +35,8 @@
             height: 150px;
         }
         
-        .flipped {
+        .flipped,
+        .egual {
             transform: rotateY(180deg);
         }
         
@@ -159,34 +160,40 @@
 
             let gameBlocks = $('#game-blocks').children()
             gameBlocks.each(function(e) {
-                $(this).on('click', function() {
+                $(this).on('click', function(e) {
                     $(this).addClass('flipped')
                     var classList = $('.flipped')
+                    var first = $('.flipped')[0]
+                    var second = $('.flipped')[1]
                     if (classList.length == 2) {
-                        console.log('is 2')
-                        gameBlocks.addClass('none-clicking')
-                        if ()
+
+                        $('#game-blocks').addClass('none-clicking')
+                        setTimeout(() => {
+                                $('#game-blocks').removeClass('none-clicking')
+                            }, 1000)
+                            // call function
+                        chekblocks(first, second)
+
                     }
                 })
             })
-
-
-            // $('#game-blocks').children().each(function() {
-            //     let classChecked = $(this).hasClass('flipped')
-            //     $(this).filter(function() {
-            //         $(this).on('click', function() {
-            //             if ($(this).hasClass('flipped')) {
-            //                 console.log($(this).length)
-            //             } else {
-            //                 console.log('no')
-            //             }
-            //         })
-
-            //     })
-            // })
-
         })
     })
+
+    function chekblocks(first, seconde) {
+        if (first.dataset.tech === seconde.dataset.tech) {
+            first.classList.remove('flipped')
+            seconde.classList.remove('flipped')
+
+            first.classList.add('egual')
+            seconde.classList.add('egaul')
+        } else {
+            setTimeout(() => {
+                first.classList.remove('flipped')
+                seconde.classList.remove('flipped')
+            }, 1000)
+        }
+    }
 </script>
 
 </html>

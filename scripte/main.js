@@ -74,10 +74,6 @@ function customShuffle(x) {
 
 let emoji = customShuffle(EmojiImg)
 
-// for (let i = 0; i < finaleImage.length; i++) {
-//     myImg[i].setAttribute('src', finaleImage[i])
-// }
-
 $(document).ready(() => {
     $('.level-1').click(function() {
         $('.text').remove();
