@@ -85,6 +85,10 @@
             /* background-color: #13547a; */
             color: white;
         }
+        
+        .none-clicking {
+            pointer-events: none;
+        }
     </style>
 
 </head>
@@ -154,26 +158,32 @@
 
 
             let gameBlocks = $('#game-blocks').children()
-            gameBlocks.each(function() {
+            gameBlocks.each(function(e) {
                 $(this).on('click', function() {
                     $(this).addClass('flipped')
-                    let classChecked = $(this).hasClass('flipped')
+                    var classList = $('.flipped')
+                    if (classList.length == 2) {
+                        console.log('is 2')
+                        gameBlocks.addClass('none-clicking')
+                        if ()
+                    }
                 })
             })
 
-            $('#game-blocks').children().each(function() {
-                let classChecked = $(this).hasClass('flipped')
-                $(this).filter(function() {
-                    $(this).on('click', function() {
-                        if ($(this).hasClass('flipped')) {
-                            console.log($(this).length)
-                        } else {
-                            console.log('no')
-                        }
-                    })
 
-                })
-            })
+            // $('#game-blocks').children().each(function() {
+            //     let classChecked = $(this).hasClass('flipped')
+            //     $(this).filter(function() {
+            //         $(this).on('click', function() {
+            //             if ($(this).hasClass('flipped')) {
+            //                 console.log($(this).length)
+            //             } else {
+            //                 console.log('no')
+            //             }
+            //         })
+
+            //     })
+            // })
 
         })
     })
