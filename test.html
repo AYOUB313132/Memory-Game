@@ -35,7 +35,10 @@
             height: 150px;
         }
         
-        .flipped,
+        .flipped {
+            transform: rotateY(180deg);
+        }
+        
         .egual {
             transform: rotateY(180deg);
         }
@@ -142,7 +145,7 @@
     let emoji = customShuffle(EmojiImg)
 
     $(document).ready(() => {
-        $('button').click(function() {
+        $('#level-1').click(function() {
 
             $('.text').remove();
             $('#game-blocks').addClass('grid')
@@ -163,37 +166,97 @@
                 $(this).on('click', function(e) {
                     $(this).addClass('flipped')
                     var classList = $('.flipped')
-                    var first = $('.flipped')[0]
-                    var second = $('.flipped')[1]
-                    if (classList.length == 2) {
 
-                        $('#game-blocks').addClass('none-clicking')
-                        setTimeout(() => {
-                                $('#game-blocks').removeClass('none-clicking')
-                            }, 1000)
-                            // call function
-                        chekblocks(first, second)
-
-                    }
+                    chekblocks(classList)
                 })
             })
         })
     })
 
-    function chekblocks(first, seconde) {
-        if (first.dataset.tech === seconde.dataset.tech) {
-            first.classList.remove('flipped')
-            seconde.classList.remove('flipped')
+    function chekblocks(classList) {
+        if (!classList || classList.length < 2) {
+            return;
+        } else if (classList && classList.length == 2) {
 
-            first.classList.add('egual')
-            seconde.classList.add('egaul')
-        } else {
-            setTimeout(() => {
-                first.classList.remove('flipped')
-                seconde.classList.remove('flipped')
-            }, 1000)
+            var first = classList.first().get(0);
+            var second = classList.last().get(0);
+            console.log(first, second)
+            if (first && second && first.dataset.tech === second.dataset.tech) {
+                //set equal class
+                first.classList.add('egual');
+                second.classList.add('egual');
+                //remove hide class 
+                //first.classList.remove('hide');
+                //second.classList.remove('hide');
+            }
         }
+        resetClass()
     }
+
+    function resetClass() {
+        setTimeout(() => {
+            //jquery
+            $('.game-block.flipped').removeClass('flipped');
+            //purejs 
+            //Array.from(document.querySelectorAll('.game-block.flipped')).forEach((el) => el.classList.remove('flipped'));
+        }, 1000)
+
+    }
+
+    // function chekblocks(first, seconde) {
+    //     if (first.dataset.tech === seconde.dataset.tech) {
+    //         first.classList.remove('flipped')
+    //         seconde.classList.remove('flipped')
+
+    //         first.classList.add('egual')
+    //         seconde.classList.add('egaul')
+    //     } else {
+    //         setTimeout(() => {
+    //             first.classList.remove('flipped')
+    //             seconde.classList.remove('flipped')
+    //         }, 1000)
+    //     }
+    // }
+    /* =========== Array Images =========== */
+
+    // shuffle Array 
+    // let gameBlock = document.getElementById('images').children;
+
+    //         let otro = Array.from(gameBlock)
+
+    //         // let one = [...Array(gameBlock.length).keys()]
+    //         // let one = Array.from(Array(gameBlock.length).keys())
+    //         let one = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    //         console.log(one)
+    //         shuffle(one)
+    //         console.log(one)
+
+    //         function shuffle(arr) {
+    //             let current = arr.length,
+    //                 random,
+    //                 temporal;
+    //             while (current > 0) {
+    //                 random = Math.floor(Math.random() * current);
+    //                 current--;
+    //                 temporal = arr[current]
+    //                 arr[current] = arr[random]
+    //                 arr[random] = temporal
+
+    //             }
+
+    //             return arr;
+
+    //         }
+    // getShuffledArr = arr => {
+    //     const newArr = arr.slice()
+    //     console.log(newArr)
+    //     for (let i = newArr.length - 1; i > 0; i--) {
+    //         const rand = Math.floor(Math.random() * (i + 1));
+    //         [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
+    //     }
+    //     return newArr
+    // };
+    // let finaleImage = getShuffledArr(img)
 </script>
 
 </html>
