@@ -1,28 +1,81 @@
 /* =========== Array Images =========== */
-let EmojiImg = [
-    "image/logo-1.png",
-    "image/logo-2.png",
-    "image/logo-3.png",
-    "image/logo-4.png",
-    "image/logo-5.png",
-    "image/logo-6.png",
-    "image/logo-7.png",
-    "image/logo-8.png",
-    "image/logo-9.png",
-    "image/logo-10.png",
-    "image/logo-1.png",
-    "image/logo-2.png",
-    "image/logo-3.png",
-    "image/logo-4.png",
-    "image/logo-5.png",
-    "image/logo-6.png",
-    "image/logo-7.png",
-    "image/logo-8.png",
-    "image/logo-9.png",
-    "image/logo-10.png",
+let fruitImg = [
+    "images/fruits/fruit-1.png",
+    "images/fruits/fruit-2.png",
+    "images/fruits/fruit-3.png",
+    "images/fruits/fruit-4.png",
+    "images/fruits/fruit-5.png",
+    "images/fruits/fruit-6.png",
+    "images/fruits/fruit-7.png",
+    "images/fruits/fruit-8.png",
+    "images/fruits/fruit-1.png",
+    "images/fruits/fruit-2.png",
+    "images/fruits/fruit-3.png",
+    "images/fruits/fruit-4.png",
+    "images/fruits/fruit-5.png",
+    "images/fruits/fruit-6.png",
+    "images/fruits/fruit-7.png",
+    "images/fruits/fruit-8.png",
+
 ];
-let cartonne = [];
-let technology = [];
+let cartoonImg = [
+    "images/cartoon/cart-01.png",
+    "images/cartoon/cart-02.png",
+    "images/cartoon/cart-03.png",
+    "images/cartoon/cart-04.png",
+    "images/cartoon/cart-05.png",
+    "images/cartoon/cart-06.png",
+    "images/cartoon/cart-07.png",
+    "images/cartoon/cart-08.png",
+    "images/cartoon/cart-09.png",
+    "images/cartoon/cart-10.png",
+    "images/cartoon/cart-11.png",
+    "images/cartoon/cart-12.png",
+    "images/cartoon/cart-01.png",
+    "images/cartoon/cart-02.png",
+    "images/cartoon/cart-03.png",
+    "images/cartoon/cart-04.png",
+    "images/cartoon/cart-05.png",
+    "images/cartoon/cart-06.png",
+    "images/cartoon/cart-07.png",
+    "images/cartoon/cart-08.png",
+    "images/cartoon/cart-09.png",
+    "images/cartoon/cart-10.png",
+    "images/cartoon/cart-11.png",
+    "images/cartoon/cart-12.png"
+];
+let technologyImg = [
+    "images/technology/tech-01.png",
+    "images/technology/tech-02.png",
+    "images/technology/tech-03.png",
+    "images/technology/tech-04.png",
+    "images/technology/tech-05.png",
+    "images/technology/tech-06.png",
+    "images/technology/tech-07.png",
+    "images/technology/tech-08.png",
+    "images/technology/tech-09.png",
+    "images/technology/tech-10.png",
+    "images/technology/tech-11.png",
+    "images/technology/tech-12.png",
+    "images/technology/tech-13.png",
+    "images/technology/tech-14.png",
+    "images/technology/tech-15.png",
+    "images/technology/tech-01.png",
+    "images/technology/tech-02.png",
+    "images/technology/tech-03.png",
+    "images/technology/tech-04.png",
+    "images/technology/tech-05.png",
+    "images/technology/tech-06.png",
+    "images/technology/tech-07.png",
+    "images/technology/tech-08.png",
+    "images/technology/tech-09.png",
+    "images/technology/tech-10.png",
+    "images/technology/tech-11.png",
+    "images/technology/tech-12.png",
+    "images/technology/tech-13.png",
+    "images/technology/tech-14.png",
+    "images/technology/tech-15.png"
+];
 /* ===================== FUNCTION SHUFFLE ===================== */
 function customShuffle(x) {
     var y = x.slice(1, x.length - 1);
@@ -35,43 +88,92 @@ function customShuffle(x) {
     }
     return [x[0]].concat(y).concat(x[x.length - 1]);
 }
-let emoji = customShuffle(EmojiImg)
+let fruit = customShuffle(fruitImg)
+let technology = customShuffle(technologyImg)
+let cartoon = customShuffle(cartoonImg)
 
 /* ===================== STAR jQuery ===================== */
 $(document).ready(() => {
+
+    /*++++++++ Add Sound ++++++++*/
+
     let soundStar = new Audio("/sound/mixkit-fun-times-7.mp3");
     let soundVictory = new Audio('/sound/sfx-victory6.mp3');
-    const faild = new Audio('/sound/mixkit-game-show-wrong-answer-buzz-950.wav');
+    let faild = new Audio('/sound/mixkit-game-show-wrong-answer-buzz-950.wav');
+
+    /*++++++++ write Name ++++++++*/
+
     let addName = prompt('write your name')
     if (addName == '' || addName == null) {
-        $('#name').text('Unknown')
+        $('#name').text('Hello Unknown')
         $('#name').slideDown(1500)
 
     } else {
         $('#name').html('<strong>Hello<strong> ' + addName)
         $('#name').slideDown(1500)
     }
-    $('#level-1').one('click', function() {
 
-        $('.text').remove();
-        $('#game-blocks').addClass('flex')
-        for (let i = 0; i < emoji.length; i++) {
-            $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
-        }
+    /*++++++++ Chose Livel  ++++++++*/
+    $('button').click(function() {
+            if ($(this).text() == 'Level 1') {
+                $('#star').removeClass('stop-click')
+                $('#game-blocks').children().remove()
+                $('#game-blocks').removeClass('flex-livel-2 flex-livel-3')
+                $('.text').remove();
+                $('#game-blocks').addClass('flex-livel-1')
+                for (let i = 0; i < fruit.length; i++) {
+                    $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+                }
 
-        $('img').map(function(e) {
-            let imgSrc = emoji[e];
-            $(this).attr('src', imgSrc);
-            $(this).parents('.game-block').attr('data-tech', imgSrc.slice(6, -4));
+                $('img').map(function(e) {
+                    let imgSrc = fruit[e];
+                    $(this).attr('src', imgSrc);
+                    $(this).parents('.game-block').attr('data-tech', imgSrc);
+                })
+                $('#game-blocks .game-block').slideDown(1000)
+                $('#timer').slideDown(1000)
+            } else if ($(this).text() == 'Level 2') {
+                $('#star').removeClass('stop-click')
+                $('#game-blocks').children().remove()
+                $('#game-blocks').removeClass('flex-livel-1 flex-livel-3')
+                $('.text').remove();
+                $('#game-blocks').addClass('flex-livel-2')
+                for (let i = 0; i < cartoon.length; i++) {
+                    $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+                }
+
+                $('img').map(function(e) {
+                    let imgSrc = cartoon[e];
+                    $(this).attr('src', imgSrc);
+                    $(this).parents('.game-block').attr('data-tech', imgSrc);
+                })
+                $('#game-blocks .game-block').slideDown(1000)
+                $('#timer').slideDown(1000)
+            } else if ($(this).text() == 'Level 3') {
+                $('#star').removeClass('stop-click')
+                $('#game-blocks').removeClass('flex-livel-1 flex-livel-2')
+                $('#game-blocks').children().remove()
+                $('.text').remove();
+                $('#game-blocks').addClass('flex-livel-3')
+                for (let i = 0; i < technology.length; i++) {
+                    $('#game-blocks').append('<div class="game-block hide"><div class="face front">?</div><div class="face back"><img id="back" src="" alt=""></div></div>')
+                }
+
+                $('img').map(function(e) {
+                    let imgSrc = technology[e];
+                    $(this).attr('src', imgSrc);
+                    $(this).parents('.game-block').attr('data-tech', imgSrc);
+                })
+                $('#game-blocks .game-block').slideDown(1000)
+                $('#timer').slideDown(1000)
+            }
         })
-        $('#game-blocks .game-block').slideDown(1000)
-        $('#timer').slideDown(1000)
-    })
-
+        /*++++++++ Star Gaming  ++++++++*/
 
     $('#star').click(function() {
         // $('#star').play()
         soundStar.play();
+        $('#level').addClass('stop-click')
         $('#click').slideDown(1000)
         let timer = setInterval(chronometre, 10)
         let gameBlocks = $('#game-blocks').children()
@@ -81,22 +183,24 @@ $(document).ready(() => {
                 $(this).addClass('flipped')
                 var classList = $('.flipped')
                 chekblocks(classList)
-                if ($('.egual').length == 2) {
+                if ($('.egual').length == gameBlocks.length) {
                     let timeEnd = $('#timer').text()
                     clearInterval(timer)
-                    $('#game-blocks').children().slideUp(2000)
+                    $('#timer').text('00:00:00')
+                    $('#game-blocks').children().fadeOut(800)
                     $('#game-blocks').append('<div class="feli"><div><strong>Great<strong><i class="fa-solid fa-face-smile-wink"></i><i class="fa-solid fa-hands-clapping"></i></div><div>You Finished the game in: <strong>' + timeEnd + '</strong></div><div>You have clicked: <strong>' + click + '</div>')
-
+                    $('#game-blocks').removeClass('flex-livel-1 flex-livel-2 flex-livel-3')
                     soundStar.currentTime = 0
                     soundStar.pause()
                     soundVictory.play()
-
                 }
             })
         })
-
-
     })
+    $('#restar').click(() => {
+        location.reload();
+    })
+
 })
 let click = 0;
 

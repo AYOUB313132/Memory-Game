@@ -9,10 +9,12 @@
 }
 
 :root {
-    --main-color: ;
-    --seconde-color: ;
+    --main-color: #a1c4fd;
+    --seconde-color: #13547a;
+    --background-color: ;
     --font-nrml: ;
     --font-bold: ;
+    --border-raduis: 10px;
 }
 
 html {
@@ -133,6 +135,12 @@ h1 {
     margin: 20px auto;
 }
 
+@media (max-width:767px) {
+    h1 {
+        font-size: 35px;
+    }
+}
+
 
 /*============ STAR MAIN ============*/
 
@@ -183,16 +191,19 @@ aside .level {
     justify-content: space-between
 }
 
-aside article span {
+aside button {
+    outline: none;
+    border: none;
+    font-size: 1rem;
     background-color: #13547a;
+    color: white;
     margin-left: 10px;
     padding: 10px 15px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
+    border-radius: var(--border-raduis);
+    transition: 0.5s;
 }
 
-aside span:hover {
+aside button:hover {
     background-color: white;
     color: #13547a;
 }
@@ -205,15 +216,6 @@ aside span:hover {
     gap: 25px;
     padding: 0 10px;
 }
-
-
-/* aside>div {
-    font-size: 1.75rem;
-    letter-spacing: -1px;
-    border: 2px solid #13547a;
-    border-radius: 10px;
-    padding: 10px 20px;
-} */
 
 .info>span {
     color: #13547a;
@@ -230,19 +232,17 @@ aside span:hover {
     }
 }
 
-aside>button {
-    outline: none;
-    border: none;
-    padding: 10px;
+aside .star {
     width: 80%;
-    border-radius: 10px;
     font-size: 1.5rem;
     text-transform: uppercase;
     background: linear-gradient(to right, white 50%, #13547a 50%);
     background-size: 200% 100%;
     background-position: right top;
-    transition: 0.5s;
-    color: white;
+}
+
+aside .star:hover {
+    background-position: left top;
 }
 
 @media (max-width:991px) {
@@ -251,47 +251,27 @@ aside>button {
     }
 }
 
-aside>button:hover {
-    color: #13547a;
-    background-position: left top;
-}
-
 
 /*============ STAR SECTION ============*/
 
 main section {
-    width: calc(70% - 10px);
-    padding: 10px;
     border: 5px solid #fff1eb;
     position: relative;
+    width: 60%;
+    flex: 1;
 }
 
 main section .text {
-    margin-top: 5px;
+    margin: 25px auto;
     font-size: 55px;
     color: #a1c4fd;
     text-align: center;
-}
-
-@media (max-width:667px) {
-    main section .text {
-        font-size: 20px;
-    }
 }
 
 section .game-block {
     position: relative;
     transition: transform 0.5s;
     transform-style: preserve-3d;
-    width: 150px;
-    height: 150px;
-}
-
-@media (max-width:667px) {
-    section .game-block {
-        width: 65px;
-        height: 65px;
-    }
 }
 
 .flipped {
@@ -317,17 +297,20 @@ section .game-block {
     justify-content: center;
 }
 
-@media (max-width:767px) {
-    .feli {
-        width: 100%;
-        font-size: 25px;
-    }
-}
-
 section svg {
     margin-left: 10px;
     font-size: 35px;
     color: #29323c;
+}
+
+@media (max-width:767px) {
+    .feli {
+        width: 80%;
+        font-size: 20px;
+    }
+    section svg {
+        font-size: 25px;
+    }
 }
 
 section .game-block .face {
@@ -352,13 +335,6 @@ section .game-block .front {
     text-align: center;
 }
 
-@media (max-width:667px) {
-    section .game-block .front {
-        font-size: 45px;
-        line-height: 65px;
-    }
-}
-
 section .game-block .back img {
     width: 100%;
     height: 100%;
@@ -370,12 +346,128 @@ section .game-block .back img {
     display: none;
 }
 
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 15px;
-    column-gap: 15px;
+.stop-click {
+    pointer-events: none;
+}
+
+
+/* ============= Responsive Livel 1 ============= */
+
+.flex-livel-1 {
+    padding: 10px;
+    display: grid;
     justify-content: center;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(4, 150px);
+    gap: 20px;
+}
+
+@media (max-width:1200px) {
+    .flex-livel-1 {
+        grid-template-columns: repeat(4, 130px);
+        grid-template-rows: repeat(4, 130px);
+        gap: 15px;
+    }
+}
+
+@media (max-width:991px) {
+    .flex-livel-1 {
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: repeat(4, 80px);
+    }
+    .flex-livel-1 .game-block .front {
+        font-size: 45px;
+        line-height: 70px;
+    }
+}
+
+@media (max-width:767px) {
+    .flex-livel-1 {
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(4, 50px);
+    }
+    .flex-livel-1 .game-block .front {
+        font-size: 35px;
+        line-height: 60px;
+    }
+}
+
+
+/* ============= Responsive Livel 2 ============= */
+
+.flex-livel-2 {
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    grid-template-columns: repeat(6, 110px);
+    grid-template-rows: repeat(4, 110px);
+    gap: 20px;
+}
+
+@media (max-width:1200px) {
+    .flex-livel-2 {
+        grid-template-columns: repeat(6, 80px);
+        grid-template-rows: repeat(4, 80px);
+    }
+    .flex-livel-2 .game-block .front {
+        font-size: 45px;
+        line-height: 70px;
+    }
+}
+
+@media (max-width:991px) {
+    .flex-livel-2 {}
+}
+
+@media (max-width:767px) {
+    .flex-livel-2 {
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(6, 70px);
+        gap: 10px;
+    }
+    .flex-livel-2 .game-block .front {
+        font-size: 25px;
+        line-height: 50px;
+    }
+}
+
+
+/* ============= Responsive Livel 3 ============= */
+
+.flex-livel-3 {
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 20px;
+}
+
+@media (max-width:1200px) {
+    .flex-livel-3 {
+        grid-template-columns: repeat(6, 80px);
+        grid-template-rows: repeat(5, 80px);
+    }
+    .flex-livel-3 .game-block .front {
+        font-size: 45px;
+        line-height: 70px;
+    }
+}
+
+@media (max-width:991px) {
+    .flex-livel-3 {}
+}
+
+@media (max-width:767px) {
+    .flex-livel-3 {
+        grid-template-columns: repeat(5, 50px);
+        grid-template-rows: repeat(6, 50px);
+        gap: 10px;
+    }
+    .flex-livel-3 .game-block .front {
+        font-size: 25px;
+        line-height: 50px;
+    }
 }
 
 
@@ -388,11 +480,14 @@ footer {
 footer .info {
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
 }
 
-@media (max-width:991px) {
+@media (max-width:767px) {
     footer .info {
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
     }
 }
 
@@ -414,6 +509,12 @@ footer .info .social-media ul li {
 footer .info .social-media ul li a {
     font-size: 1.5rem;
     color: #a1c4fd;
+}
+
+@media (max-width:767px) {
+    footer .info ul {
+        text-align: center;
+    }
 }
 
 footer .info ul li:first-child {
