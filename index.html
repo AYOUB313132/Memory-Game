@@ -11,48 +11,7 @@
     <!-- Add File Style -->
     <link rel="stylesheet" href="style/style.css">
     <style>
-        .game-block {
-            position: relative;
-            transition: all 0.8s;
-            transform-style: preserve-3d;
-            width: 150px;
-            height: 150px;
-        }
-        
-        .flipped {
-            transform: rotateY(180deg);
-        }
-        
-        .game-block .face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-        
-        .game-block .back {
-            background-color: #a1c4fd;
-            transform: rotateY(180deg);
-        }
-        
-        .game-block .front {
-            background-color: black;
-            color: white;
-            font-size: 90px;
-            line-height: 120px;
-            text-align: center;
-        }
-        
-        .game-block .back img {
-            width: 100%;
-            height: 100%;
-            background-color: #c3cfe2;
-        }
-        
-        .hide {
-            display: none;
-        }
+
     </style>
 </head>
 
@@ -82,32 +41,36 @@
                     <span class="level-2" id="level-2">Level 2</span>
                     <span class="level-3" id="level-3">Level 3</span>
                 </article>
-                <div class="info">Info</div>
-                <div class="chrono" id="chrono">Chronometre</div>
-                <div class="number-click" id="number-click">Number Of Click</div>
-                <div class="result" id="result">Result</div>
+                <div class="info">
+                    <span class="name hide" id="name"></span>
+                    <span class="timer hide" id="timer">00:00:00</span>
+                    <span class="click hide" id="click"></span>
+                </div>
+
                 <button class="star" id="star">Start</button>
             </aside>
             <section class="game-blocks" id="game-blocks">
                 <p class="text"> &LeftArrow; &nbsp; Chose Level</p>
             </section>
-            <audio id="success" src="sound/success-sound-effect.mp3" preload="auto"></audio>
-            <audio id="star" src="sound/mixkit-fun-times-7.mp3" preload="auto"></audio>
+
     </main>
     <footer>
         <div class="container">
             <div class="info">
-                <ul>
-                    <li><a href="https://www.facebook.com/AyOuBGuiZa"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="https://es.linkedin.com/in/hassen-ayyoub-chetti-5751241bb"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="https://www.instagram.com/ayoubelgauje/"><i class="fa-brands fa-instagram-square"></i></a></li>
-                    <li><a href="https://github.com/AYOUB313132"><i class="fa-brands fa-github-square"></i></a></li>
-                </ul>
+                <div class="social-media">
+                    <div class="txt">Follow Me</div>
+                    <ul>
+                        <li><a href="https://www.facebook.com/AyOuBGuiZa"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://es.linkedin.com/in/hassen-ayyoub-chetti-5751241bb"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/ayoubelgauje/"><i class="fa-brands fa-instagram-square"></i></a></li>
+                        <li><a href="https://github.com/AYOUB313132"><i class="fa-brands fa-github-square"></i></a></li>
+                    </ul>
+                </div>
+
                 <ul>
                     <li>Adresse</li>
                     <li>48000</li>
-                    <li>Bilbao</li>
-                    <li>Bizkaia</li>
+                    <li>Bilbao, Bizkaia</li>
                     <li>España</li>
                 </ul>
             </div>

@@ -104,6 +104,7 @@
     <section class="game-blocks" id="game-blocks">
 
     </section>
+    <div id="timer"></div>
 </body>
 <script src="scripte/jquery-3.6.0.min.js"></script>
 <script>
@@ -145,6 +146,45 @@
     let emoji = customShuffle(EmojiImg)
 
     $(document).ready(() => {
+        let time = $('#timer')
+            // var timerVar = setInterval(countTimer, 10);
+            // var totalMilisecond = 0;
+
+        // function countTimer() {
+        //     totalMilisecond++;
+
+        //     var minute = Math.floor((totalMilisecond) / 60);
+        //     var seconds = totalMilisecond - (minute * 60);
+
+        //     if (minute < 10)
+        //         minute = "0" + minute;
+        //     if (seconds < 10)
+        //         seconds = "0" + seconds;
+        //     document.getElementById('timer').innerHTML = minute + ":" + seconds;
+        // }
+        let counter = 0;
+        let seconde = 0;
+        let minute = 0;
+        setInterval(() => {
+            counter++;
+            if (counter > 99) {
+                counter = 0;
+                time.html(minute + ':' + ++seconde + ':' + counter);
+            }
+            if (seconde > 15) {
+                seconde = 0;
+                time.html('0' + ++minute + ':' + seconde + ':' + counter);
+            } else if (seconde < 10) {
+                time.html('0' + minute + ':' + '0' + seconde + ':' + counter);
+            } else if (minute < 10) {
+                time.html('0' + minute + ':' + seconde + ':' + counter);
+            } else {
+                time.html('0' + minute + ':' + seconde + ':' + counter);
+            }
+
+
+        }, 10)
+
         $('#level-1').click(function() {
 
             $('.text').remove();
