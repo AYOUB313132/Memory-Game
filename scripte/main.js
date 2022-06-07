@@ -117,16 +117,6 @@ $(document).ready(() => {
             $('#name').slideDown(1500)
         }
     })
-    /*let addName = prompt('write your name')
-    if (addName == '' || addName == null) {
-        $('#name').text('Hello Unknown')
-        $('#name').slideDown(1500)
-
-    } else {
-        $('#name').html('<strong>Hello<strong> ' + addName)
-        $('#name').slideDown(1500)
-    }*/
-
     /*++++++++ Chose Livel  ++++++++*/
     $('button').click(function() {
             if ($(this).text() == 'Level 1') {
