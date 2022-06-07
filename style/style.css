@@ -140,8 +140,64 @@ h1 {
         font-size: 35px;
     }
 }
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .6);
+}
 
-
+.popup{
+    position: absolute;
+    z-index: 2;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #13547a;
+    border-radius: 10px;
+}
+@media (max-width:767px) {
+    .popup{
+        width: 300px;
+        height: 180px;
+    }
+}
+.popup .cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.popup .fa-xmark{
+    position: absolute;
+    font-size: 22px;
+    right: -10px;
+    top: -10px;
+    color: white;
+    background-color: #13547a;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.popup p {
+    font-size: 25px;
+    color: #13547a;
+    font-weight: bold;
+}
+.popup input{
+    padding: 10px;
+    border:2px solid  #13547a;
+    font-size: 18px;
+}
+.popup input:focus{
+    outline-color: #13547a;
+}
 /*============ STAR MAIN ============*/
 
 main {

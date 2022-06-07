@@ -94,7 +94,7 @@ let cartoon = customShuffle(cartoonImg)
 
 /* ===================== STAR jQuery ===================== */
 $(document).ready(() => {
-
+    
     /*++++++++ Add Sound ++++++++*/
 
     let soundStar = new Audio("/sound/mixkit-fun-times-7.mp3");
@@ -102,8 +102,22 @@ $(document).ready(() => {
     let faild = new Audio('/sound/mixkit-game-show-wrong-answer-buzz-950.wav');
 
     /*++++++++ write Name ++++++++*/
-
-    let addName = prompt('write your name')
+    $('#popup').fadeIn(1500)
+    $('#close').click(function(){
+        let name = $('#write-name').val()
+        $(this).parents('#popup').fadeOut(1500)
+        $(this).parents('#popup').siblings('.overlay').fadeOut(1500)
+        
+        if (name == ''){
+            $('#name').text('Hello Unknown')
+            $('#name').slideDown(1500)
+    
+        }else{
+            $('#name').html('<strong>Hello<strong> ' + name)
+            $('#name').slideDown(1500)
+        }
+    })
+    /*let addName = prompt('write your name')
     if (addName == '' || addName == null) {
         $('#name').text('Hello Unknown')
         $('#name').slideDown(1500)
@@ -111,12 +125,12 @@ $(document).ready(() => {
     } else {
         $('#name').html('<strong>Hello<strong> ' + addName)
         $('#name').slideDown(1500)
-    }
+    }*/
 
     /*++++++++ Chose Livel  ++++++++*/
     $('button').click(function() {
             if ($(this).text() == 'Level 1') {
-                $('#star').removeClass('stop-click')
+                $('#star').removeClass('stop-click hide')
                 $('#game-blocks').children().remove()
                 $('#game-blocks').removeClass('flex-livel-2 flex-livel-3')
                 $('.text').remove();
@@ -133,7 +147,7 @@ $(document).ready(() => {
                 $('#game-blocks .game-block').slideDown(1000)
                 $('#timer').slideDown(1000)
             } else if ($(this).text() == 'Level 2') {
-                $('#star').removeClass('stop-click')
+                $('#star').removeClass('stop-click hide')
                 $('#game-blocks').children().remove()
                 $('#game-blocks').removeClass('flex-livel-1 flex-livel-3')
                 $('.text').remove();
@@ -150,7 +164,7 @@ $(document).ready(() => {
                 $('#game-blocks .game-block').slideDown(1000)
                 $('#timer').slideDown(1000)
             } else if ($(this).text() == 'Level 3') {
-                $('#star').removeClass('stop-click')
+                $('#star').removeClass('stop-click hide')
                 $('#game-blocks').removeClass('flex-livel-1 flex-livel-2')
                 $('#game-blocks').children().remove()
                 $('.text').remove();

@@ -33,6 +33,15 @@
         </div>
     </header>
     <h1 class="center">Game Memory</h1>
+    <div class="overlay"></div>
+    <div class="popup hide" id="popup">
+        <div class="cont">
+            <i class="fa-solid fa-xmark" id="close"></i>
+        <p>Write your name</p>
+        <input type="text"  id="write-name">
+        </div>
+        
+    </div>
     <!-- Star Content -->
     <main>
         <div class="container" id="container">
@@ -48,7 +57,7 @@
                     <span class="click hide" id="click"></span>
                 </div>
 
-                <button class="star stop-click" id="star">Start</button>
+                <button class="star stop-click hide" id="star">Start</button>
                 <button class="restar" id="restar">Restart</button>
             </aside>
             <section class="game-blocks" id="game-blocks">
