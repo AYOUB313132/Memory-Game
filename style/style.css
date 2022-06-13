@@ -9,10 +9,10 @@
 }
 
 :root {
-    --main-color: #a1c4fd;
-    --seconde-color: #13547a;
+    --main-color: #13547a;
+    --seconde-color: #a1c4fd;
     --background-color: ;
-    --font-nrml: ;
+    --font-nrml: 1rem;
     --font-bold: ;
     --border-raduis: 10px;
 }
@@ -100,14 +100,24 @@ header .container nav {
     display: flex;
     justify-content: space-around;
 }
-
+@media (max-width:767px) {
+    header .container nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 header .container nav .logo {
     font-size: 1.25rem;
     letter-spacing: -1px;
     word-spacing: -2px;
     font-size: bold;
 }
-
+@media (max-width:767px){
+    header .container nav .logo {
+        margin-bottom: 20px;
+    }
+}
 header .container nav .logo span:last-child {
     color: #a1c4fd;
 }
@@ -137,7 +147,7 @@ h1 {
 
 @media (max-width:767px) {
     h1 {
-        font-size: 35px;
+        font-size: 28px;
     }
 }
 .overlay{
@@ -152,26 +162,26 @@ h1 {
 .popup{
     position: absolute;
     z-index: 2;
-    width: 400px;
-    height: 200px;
+    width: 500px;
+    height: 300px;
     background-color: white;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     border: 3px solid #13547a;
     border-radius: 10px;
+    padding: 50px;
 }
 @media (max-width:767px) {
     .popup{
-        width: 300px;
-        height: 180px;
+        width: 250px;
+        height: 150px;
     }
 }
 .popup .cont{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 .popup .fa-xmark{
     position: absolute;
@@ -189,15 +199,46 @@ h1 {
     font-size: 25px;
     color: #13547a;
     font-weight: bold;
+    text-align: center;
+}
+@media (max-width:767px) {
+    .popup p {
+        font-size: 20px;
+    }
 }
 .popup input{
     padding: 10px;
     border:2px solid  #13547a;
     font-size: 18px;
+    margin-bottom: 10px;
 }
 .popup input:focus{
     outline-color: #13547a;
 }
+.popup button{
+    outline: none;
+    border: none;
+    background-color:  #13547a;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.popup button:hover{
+
+}
+@media (max-width:767px){
+    .popup input{
+        padding: 5px;
+        font-size: 1rem;
+    }
+    .popup button{
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
 /*============ STAR MAIN ============*/
 
 main {
@@ -258,7 +299,12 @@ aside button {
     border-radius: var(--border-raduis);
     transition: 0.5s;
 }
-
+@media (max-width:767px) {
+    aside button {
+        font-size: 14px;
+        padding: 10px 10px;
+    }
+}
 aside button:hover {
     background-color: white;
     color: #13547a;
@@ -285,6 +331,9 @@ aside button:hover {
 @media (max-width:767px) {
     .info>span {
         padding: 10px;
+    }
+    .info .name {
+        font-size: 18px;
     }
 }
 
@@ -323,7 +372,12 @@ main section .text {
     color: #a1c4fd;
     text-align: center;
 }
+@media (max-width:767px) {
+    main section .text {
+        font-size: 1.5rem;
 
+    }
+}
 section .game-block {
     position: relative;
     transition: transform 0.5s;
@@ -477,8 +531,8 @@ section .game-block .back img {
 
 @media (max-width:767px) {
     .flex-livel-2 {
-        grid-template-columns: repeat(4, 70px);
-        grid-template-rows: repeat(6, 70px);
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(6, 50px);
         gap: 10px;
     }
     .flex-livel-2 .game-block .front {
@@ -516,13 +570,13 @@ section .game-block .back img {
 
 @media (max-width:767px) {
     .flex-livel-3 {
-        grid-template-columns: repeat(5, 50px);
-        grid-template-rows: repeat(6, 50px);
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(6, 40px);
         gap: 10px;
     }
     .flex-livel-3 .game-block .front {
         font-size: 25px;
-        line-height: 50px;
+        line-height: 40px;
     }
 }
 
@@ -582,7 +636,12 @@ footer .info ul li {
     font-size: 1.25rem;
     color: #a1c4fd;
 }
+@media (max-width:767px){
+    footer .info ul li {
+        font-size: 1rem;
 
+    }
+}
 footer .copyright {
     text-align: center;
 }
@@ -595,4 +654,10 @@ footer .copyright span:hover,
 footer .info ul:first-child li a:hover,
 footer .info ul:last-child li:hover {
     color: white;
+}
+@media (max-width:767px){
+    footer {
+        font-size: 1rem;
+    }
+
 }

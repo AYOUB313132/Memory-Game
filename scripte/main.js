@@ -103,7 +103,7 @@ $(document).ready(() => {
 
     /*++++++++ write Name ++++++++*/
     $('#popup').fadeIn(1500)
-    $('#close').click(function(){
+    $('#close-popup').click(function(){
         let name = $('#write-name').val()
         $(this).parents('#popup').fadeOut(1500)
         $(this).parents('#popup').siblings('.overlay').fadeOut(1500)
