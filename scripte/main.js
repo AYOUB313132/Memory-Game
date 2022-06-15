@@ -182,9 +182,8 @@ $(document).ready(() => {
         /*++++++++ Star Gaming  ++++++++*/
 
     $('#star').click(function() {
-        // $('#star').play()
-        //soundStar.play();
-        $('#sound').removeClass('hide')
+
+        //$('#sound').removeClass('hide')
         playAudio();
         $('#level').addClass('stop-click')
         $('#click').slideDown(1000)
