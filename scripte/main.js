@@ -203,9 +203,10 @@ $(document).ready(() => {
                     $('#game-blocks').children().fadeOut(800)
                     $('#game-blocks').append('<div class="feli"><div><strong>Great<strong><i class="fa-solid fa-face-smile-wink"></i><i class="fa-solid fa-hands-clapping"></i></div><div>You Finished the game in: <strong>' + timeEnd + '</strong></div><div>You have clicked: <strong>' + click + '</div>')
                     $('#game-blocks').removeClass('flex-livel-1 flex-livel-2 flex-livel-3')
-                    soundStar.currentTime = 0
-                    soundStar.pause()
-                    soundVictory.play()
+                    // soundStar.currentTime = 0
+                    // soundStar.pause()
+                    // soundVictory.play()
+                    pauseAudio()
                 }
             })
         })
@@ -231,7 +232,7 @@ function chekblocks(classList) {
             second.classList.add('egual');
             // const succes = new Audio('/sound/success-sound-effect.mp3')
             // succes.play()
-            pauseAudio();
+            
         }
     }
     resetClass()
