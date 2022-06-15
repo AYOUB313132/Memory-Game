@@ -283,13 +283,7 @@ aside .level {
 @media (max-width:991px){
     aside .level{
         flex-direction: column;
-        gap: 25px;
-    }
-}
-@media (max-width:767px){
-    aside .level{
-        flex-direction: row;
-        column-gap: 20px;
+        gap: 20px;
     }
 }
 aside button {
@@ -319,13 +313,13 @@ main aside .info {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    row-gap: 25px;
     padding: 0 10px;
 }
 
 @media (max-width:767px) {
     .aside .info {
-        gap: 35px;
+        row-gap: 25px;
     }
 }
 
