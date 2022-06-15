@@ -175,7 +175,7 @@ h1 {
 @media (max-width:767px) {
     .popup{
         width: 250px;
-        height: 150px;
+        height: 230px;
     }
 }
 .popup .cont{
