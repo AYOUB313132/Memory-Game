@@ -250,18 +250,9 @@ main .container {
     gap: 10px;
 }
 
-@media (max-width:991px) {
+@media (max-width:767px) {
     main .container {
-        flex-direction: column;
-    }
-    .aside {
-        width: 100%;
-    }
-    .game-blocks {
-        width: 100%;
-    }
-    .aside .info {
-        gap: 15px;
+       flex-direction: column;
     }
 }
 
@@ -289,7 +280,18 @@ aside .level {
     flex-direction: row;
     justify-content: space-between
 }
-
+@media (max-width:991px){
+    aside .level{
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+@media (max-width:767px){
+    aside .level{
+        flex-direction: row;
+        column-gap: 20px;
+    }
+}
 aside button {
     outline: none;
     border: none;
@@ -320,8 +322,11 @@ main aside .info {
     gap: 25px;
     padding: 0 10px;
 }
+
 @media (max-width:767px) {
-    
+    .aside .info {
+        gap: 35px;
+    }
 }
 
 main aside .info>span {
@@ -382,7 +387,11 @@ main section {
     width: 60%;
     flex: 1;
 }
-
+@media (max-width:767px) {
+    main section {
+        width: 100%;
+    }
+}
 main section .text {
     margin: 25px auto;
     font-size: 55px;
@@ -412,9 +421,9 @@ section .game-block {
 .feli {
     background-color: #a1c4fd;
     color: #13547a;
-    margin: 25px auto;
+ 
     padding: 30px 15px;
-    width: 70%;
+    width: 80%;
     height: 50%;
     text-align: center;
     font-size: 30px;
@@ -422,8 +431,26 @@ section .game-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
-
+@media (max-width:991px) {
+    .feli {
+        font-size: 25px;
+        
+    }
+}
+@media (max-width:667px) {
+    .feli {
+        position: relative;
+        margin: 30px auto;
+        transform: none;
+        top: 0;
+        left: 0;
+    }
+}
 section svg {
     margin-left: 10px;
     font-size: 35px;
@@ -627,6 +654,7 @@ footer .info .social-media .txt {
 
 footer .info .social-media ul {
     display: flex;
+    justify-content: center;
 }
 
 footer .info .social-media ul li {
