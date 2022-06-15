@@ -262,6 +262,7 @@ main aside {
 @media (max-width:767px) {
     main aside{
         width: 100%;
+        row-gap: 10px;
     }
 }
 aside .level {
@@ -272,7 +273,7 @@ aside .level {
 @media (max-width:991px){
     aside .level{
         flex-direction: column;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
     }
 }
 aside button {
@@ -286,10 +287,16 @@ aside button {
     border-radius: var(--border-raduis);
     transition: 0.5s;
 }
+@media (max-width:991px) {
+    aside button {
+        margin: 0 0 20px 0;
+    }
+}
 @media (max-width:767px) {
     aside button {
         font-size: 14px;
-        padding: 10px 10px;
+        padding: 10px 20px;
+        margin: 0 0 20px 0;
     }
 }
 aside button:hover {
