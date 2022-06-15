@@ -331,8 +331,7 @@ main aside .info>span {
         font-size: 18px;
     }
 }
-
-aside .star {
+.star {
     width: 80%;
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -341,7 +340,7 @@ aside .star {
     background-position: right top;
 }
 
-aside .star:hover {
+.star:hover {
     background-position: left top;
 }
 
@@ -683,4 +682,66 @@ footer .info ul:last-child li:hover {
         font-size: 1rem;
     }
 
+}
+/*======== PAGE CONTACT =========*/
+
+form{
+    background-color: #a1c4fd;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 0 auto;
+    row-gap: 40px;
+}
+
+form > div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+form .form-label{
+    font-size: 1.5rem;
+}
+form input,
+form textarea{
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: 0;
+    outline: none;
+    font-size: 1rem;
+}
+form textarea:focus{
+    outline-color: #13547a;
+}
+
+form .submit{
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, white 50%, var(--main-color) 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    color: white;
+    border: 0;
+    outline: none;
+    width: 150px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    margin: 10px auto;
+}
+.submit:hover {
+    background-position: left top;
+    color: #13547a;
+}
+@media (max-width:767px) {
+    form .form-label{
+        font-size: 18px;
+    }
+    form .submit{
+        font-size: 18px;
+    }
+    
 }

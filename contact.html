@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Memories</title>
+    <title>contact</title>
     <!-- Add File Font Awsome -->
     <link rel="stylesheet" href="style/all.min.css">
     <!-- Add File Style -->
     <link rel="stylesheet" href="style/style.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -32,54 +29,29 @@
 
         </div>
     </header>
-    <h1 class="center">Game Memory</h1>
-    <div class="overlay"></div>
-    <div class="popup hide" id="popup">
-        <div class="cont">
-        <p>Write your name</p>
-        <input type="text"  id="write-name">
-        <button class="close-popup" id="close-popup">Start</button>
-        </div>
-        
-    </div>
+    <h1 class="center">Contact</h1>
+  
     <!-- Star Content -->
-    <main>
+    <div class="contact">
         <div class="container" id="container">
-            <aside class="aside" id="aside">
-                <article class="level" id="level">
-                    <button class="level-1" id="level-1">Level 1</button>
-                    <button class="level-2" id="level-2">Level 2</button>
-                    <button class="level-3" id="level-3">Level 3</button>
-                </article>
-                <div class="info">
-                    <span class="name hide" id="name"></span>
-                    <span class="timer hide" id="timer">00:00:00</span>
-                    <span class="click hide" id="click"></span>
+            <form onsubmit="sendMail();reset(); return false" >
+                <div class="">
+                  <label for="sender" class="form-label">Email address</label>
+                  <input name="sender" type="email" class="form-control" id="email" placeholder="write your email" required>
+                    <input type="hidden" name="_next" value="index.html">
                 </div>
-
-                <button class="star stop-click hide" id="star">Start</button>
-                <button class="restar" id="restar">Restart</button>
-                <audio class="sound hide" id="sound-star" controls preload="auto">
-                    <source src="sound/playground-3-02.mp3" type="audio/ogg">
-                    <source src="sound/playground-3-02.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <audio class="sound hide" id="sound-succes" controls preload="auto">
-                    <source src="sound/success-sound-effect.mp3" type="audio/ogg">
-                    <source src="sound/success-sound-effect.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <audio class="sound hide" id="sound-victory" controls preload="auto">
-                    <source src="sound/sfx-victory6.mp3" type="audio/ogg">
-                    <source src="sound/sfx-victory6.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-            </aside>
-            <section class="game-blocks" id="game-blocks">
-                <p class="text"> Chose Level</p>
-            </section>
-
-    </main>
+                <div class="">
+                  <label for="your-name" class="form-label">Your name</label>
+                  <input type="text" name="Message" class="form-control" id="name" placeholder="write your name" required>
+                </div>
+                <div>
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" rows="4" cols="50" required placeholder="How can we help you?"></textarea>
+                </div>
+                <input type="submit" class="submit" value="Send">
+              </form>
+        </div>
+    </div>
     <!-- Star Footer -->
     <footer>
         <div class="container">
@@ -105,16 +77,33 @@
             <div class="copyright">
                 &copy; Copyright By &nbsp; <span>Hassen El Guaje</span> &nbsp; 2022
             </div>
-
         </div>
     </footer>
-    
-</body>
+<!-- Add Email sender-->
+<script src=" https://smtpjs.com/v3/smtp.js"></script>
 <!-- Add Scripte Jquery -->
 <script src="scripte/jquery-3.6.0.min.js"></script>
 <!-- Add Scripte Font Awsome -->
 <script src="scripte/all.min.js"></script>
 <!-- Add Scripte Main -->
 <script src="scripte/main.js"></script>
+<script>
+    let sender = document.getElementById('email').value;
+function sendMail(){
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "tellirahimo321@gmail.com",
+        Password : "@Visa2015",
+        To : 'tellirahimo321@gmail.com',
+        From : document.getElementById('email').value,
+        Subject : "New contact",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+}
+</script>
+</body>
+
 
 </html>

@@ -282,3 +282,5 @@ function chronometre() {
 
 
 // let random = Array.from({ length: 5 }, () => Math.floor(Math.random() * 5));
+
+   
