@@ -261,8 +261,6 @@ main .container {
         width: 100%;
     }
     .aside .info {
-        display: flex;
-        flex-direction: row;
         gap: 15px;
     }
 }
@@ -281,7 +279,11 @@ main aside {
     row-gap: 45px;
     background-color: #a1c4fd;
 }
-
+@media (max-width:767px) {
+    main aside{
+        width: 100%;
+    }
+}
 aside .level {
     display: flex;
     flex-direction: row;
@@ -319,11 +321,7 @@ main aside .info {
     padding: 0 10px;
 }
 @media (max-width:767px) {
-    main aside .info{
-        flex-direction: row;
-        row-gap: 20px;
-        padding: 20px 0;
-    }
+    
 }
 
 main aside .info>span {
@@ -333,14 +331,19 @@ main aside .info>span {
     border-radius: 10px;
     font-size: 1.25rem;
     text-align: center;
+
 }
 
 @media (max-width:767px) {
-    .info>span {
+    main aside .info{
+        row-gap: 20px;
+        padding: 20px 0;
+    }
+    main aside .info>span {
         padding: 10px;
         
     }
-    .info .name {
+    main aside .info .name {
         font-size: 18px;
     }
 }
@@ -362,9 +365,15 @@ aside .star:hover {
     aside>button {
         width: 50%;
     }
+    .sound{
+        width: 75%;
+        height: 40px;
+    }
 }
 
+.sound{
 
+}
 /*============ STAR SECTION ============*/
 
 main section {

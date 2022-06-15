@@ -94,10 +94,14 @@ let cartoon = customShuffle(cartoonImg)
 
 /* ===================== STAR jQuery ===================== */
 $(document).ready(() => {
-    let x = document.getElementById('test')
+    let soundStar = new Audio('../sound/playground-3-02.mp3')
+
     function playAudio() {
-        x.play();
+        soundStar.play();
       }
+    function pauseAudio() {
+        soundStar.pause();
+    }
     /*++++++++ Add Sound ++++++++*/
 
     // let soundStar = new Audio("/sound/mixkit-fun-times-7.mp3");
@@ -180,6 +184,7 @@ $(document).ready(() => {
     $('#star').click(function() {
         // $('#star').play()
         //soundStar.play();
+        
         playAudio();
         $('#level').addClass('stop-click')
         $('#click').slideDown(1000)
@@ -226,6 +231,7 @@ function chekblocks(classList) {
             second.classList.add('egual');
             // const succes = new Audio('/sound/success-sound-effect.mp3')
             // succes.play()
+            pauseAudio();
         }
     }
     resetClass()
