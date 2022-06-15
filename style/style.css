@@ -168,8 +168,8 @@ h1 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 3px solid #13547a;
-    border-radius: 10px;
+    border: 3px solid var(--main-color);
+    border-radius: var(--border-raduis);
     padding: 50px;
 }
 @media (max-width:767px) {
@@ -183,21 +183,10 @@ h1 {
     flex-direction: column;
     justify-content: center;
 }
-.popup .fa-xmark{
-    position: absolute;
-    font-size: 22px;
-    right: -10px;
-    top: -10px;
-    color: white;
-    background-color: #13547a;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
+
 .popup p {
     font-size: 25px;
-    color: #13547a;
+    color: var(--main-color);
     font-weight: bold;
     text-align: center;
 }
@@ -208,17 +197,17 @@ h1 {
 }
 .popup input{
     padding: 10px;
-    border:2px solid  #13547a;
+    border:2px solid  var(--main-color);
     font-size: 18px;
     margin-bottom: 10px;
 }
 .popup input:focus{
-    outline-color: #13547a;
+    outline-color: var(--main-color);
 }
 .popup button{
     outline: none;
     border: none;
-    background-color:  #13547a;
+    background-color:  var(--main-color);
     color: white;
     font-size: 1.5rem;
     padding: 10px;
@@ -263,7 +252,7 @@ main aside {
     padding-top: 25px;
     padding-bottom: 25px;
     width: calc(30% - 10px);
-    border: 5px solid #13547a;
+    border: 5px solid var(--main-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -290,7 +279,7 @@ aside button {
     outline: none;
     border: none;
     font-size: 1rem;
-    background-color: #13547a;
+    background-color: var(--main-color);
     color: white;
     margin-left: 10px;
     padding: 10px 15px;
@@ -305,7 +294,7 @@ aside button {
 }
 aside button:hover {
     background-color: white;
-    color: #13547a;
+    color: var(--main-color);
 }
 
 main aside .info {
@@ -317,30 +306,19 @@ main aside .info {
     padding: 0 10px;
 }
 
-@media (max-width:767px) {
-    .aside .info {
-        row-gap: 25px;
-    }
-}
-
 main aside .info>span {
-    color: #13547a;
+    color: var(--main-color);
     background-color: white;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: var(--border-raduis);
     font-size: 1.25rem;
     text-align: center;
-
 }
 
 @media (max-width:767px) {
-    main aside .info{
-        row-gap: 20px;
-        padding: 20px 0;
-    }
     main aside .info>span {
         padding: 10px;
-        
+        margin-bottom: 20px;
     }
     main aside .info .name {
         font-size: 18px;
@@ -351,7 +329,7 @@ aside .star {
     width: 80%;
     font-size: 1.5rem;
     text-transform: uppercase;
-    background: linear-gradient(to right, white 50%, #13547a 50%);
+    background: linear-gradient(to right, white 50%, var(--main-color) 50%);
     background-size: 200% 100%;
     background-position: right top;
 }
@@ -414,7 +392,7 @@ section .game-block {
 
 .feli {
     background-color: #a1c4fd;
-    color: #13547a;
+    color: var(--main-color);
  
     padding: 30px 15px;
     width: 80%;
@@ -487,7 +465,7 @@ section .game-block .back img {
     width: 100%;
     height: 100%;
     background-color: #c3cfe2;
-    border-radius: 8px;
+    border-radius: var(--border-raduis);
 }
 
 .hide {
