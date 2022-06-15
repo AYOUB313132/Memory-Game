@@ -272,7 +272,7 @@ aside .level {
 @media (max-width:991px){
     aside .level{
         flex-direction: column;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 }
 aside button {
