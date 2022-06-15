@@ -94,7 +94,7 @@ let cartoon = customShuffle(cartoonImg)
 
 /* ===================== STAR jQuery ===================== */
 $(document).ready(() => {
-    let soundStar = new Audio('../sound/playground-3-02.mp3')
+    let soundStar = document.getElementById('sound')
 
     function playAudio() {
         soundStar.play();
@@ -203,9 +203,7 @@ $(document).ready(() => {
                     $('#game-blocks').children().fadeOut(800)
                     $('#game-blocks').append('<div class="feli"><div><strong>Great<strong><i class="fa-solid fa-face-smile-wink"></i><i class="fa-solid fa-hands-clapping"></i></div><div>You Finished the game in: <strong>' + timeEnd + '</strong></div><div>You have clicked: <strong>' + click + '</div>')
                     $('#game-blocks').removeClass('flex-livel-1 flex-livel-2 flex-livel-3')
-                    // soundStar.currentTime = 0
-                    // soundStar.pause()
-                    // soundVictory.play()
+                    $('#star').addClass('hide')
                     pauseAudio()
                 }
             })
