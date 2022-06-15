@@ -94,12 +94,15 @@ let cartoon = customShuffle(cartoonImg)
 
 /* ===================== STAR jQuery ===================== */
 $(document).ready(() => {
-    
+    let x = document.getElementById('test')
+    function playAudio() {
+        x.play();
+      }
     /*++++++++ Add Sound ++++++++*/
 
-    let soundStar = new Audio("/sound/mixkit-fun-times-7.mp3");
-    let soundVictory = new Audio('/sound/sfx-victory6.mp3');
-    let faild = new Audio('/sound/mixkit-game-show-wrong-answer-buzz-950.wav');
+    // let soundStar = new Audio("/sound/mixkit-fun-times-7.mp3");
+    // let soundVictory = new Audio('/sound/sfx-victory6.mp3');
+    // let faild = new Audio('/sound/mixkit-game-show-wrong-answer-buzz-950.wav');
 
     /*++++++++ write Name ++++++++*/
     $('#popup').fadeIn(1500)
@@ -176,7 +179,8 @@ $(document).ready(() => {
 
     $('#star').click(function() {
         // $('#star').play()
-        soundStar.play();
+        //soundStar.play();
+        playAudio();
         $('#level').addClass('stop-click')
         $('#click').slideDown(1000)
         let timer = setInterval(chronometre, 10)
@@ -220,8 +224,8 @@ function chekblocks(classList) {
             //set equal class
             first.classList.add('egual');
             second.classList.add('egual');
-            const succes = new Audio('/sound/success-sound-effect.mp3')
-            succes.play()
+            // const succes = new Audio('/sound/success-sound-effect.mp3')
+            // succes.play()
         }
     }
     resetClass()

@@ -310,7 +310,7 @@ aside button:hover {
     color: #13547a;
 }
 
-.info {
+main aside .info {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -318,8 +318,15 @@ aside button:hover {
     gap: 25px;
     padding: 0 10px;
 }
+@media (max-width:767px) {
+    main aside .info{
+        flex-direction: row;
+        row-gap: 20px;
+        padding: 20px 0;
+    }
+}
 
-.info>span {
+main aside .info>span {
     color: #13547a;
     background-color: white;
     padding: 10px 20px;
@@ -331,6 +338,7 @@ aside button:hover {
 @media (max-width:767px) {
     .info>span {
         padding: 10px;
+        
     }
     .info .name {
         font-size: 18px;
